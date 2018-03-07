@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <title>Marvel</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.0/css/bootstrap-slider.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<br><br>
+2006 <input  id="slider"
+        type="text"
+        data-slider-min="2006"
+        data-slider-max="2018"
+        data-slider-step="1"
+        data-slider-range="true"
+        data-slider-value="[2008,2015]"
+        data-slider-tooltip="always"
+        data-slider-tooltip_split="true"
+> 2018
+
+<button id="search" type="button" class="btn btn-dark">Rechercher</button>
+<img id="search-load" src="img/load.gif" width="24px" height="24px" style="display: none;">
+<span id="search-badge" class="badge badge-pill badge-info"></span>
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+    </ul>
+</nav>
+
+<div id="result"></div>
+
+<div id="attribution"></div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.0/bootstrap-slider.min.js"></script>
+<script src="main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+body {
+    background-color: #303030;
+    color: #ffffff;
+}
+
+#search {
+    margin: 0 10px;
+}
+
+#result .comics {
+    height: 280px;
+    width: 202px;
+    float: left;
+    margin: 10px;
+    padding: 0;
+    list-style-type: none;
+    text-align: center;
+}
+
+#result .comics .title {
+
+}
+
+#attribution {
+    clear: both;
+}
+
+/* bug https://github.com/seiyria/bootstrap-slider/issues/817 */
+.tooltip.tooltip-main {
+    opacity: 1 !important;
+}
