@@ -54,13 +54,13 @@ function displayPagination(count, total, limit) {
 
     if (total > limit) {
         nb_page = Math.ceil(total / count);
-        for(var numeroDePage=1; numeroDePage <= nb_page; numeroDePage++) {
-            html += "<li class=\"page-item\"><a class=\"page-link\" href=\"#\">" + numeroDePage + "</a></li>";
+        for(numeroDePage=1; numeroDePage <= nb_page; numeroDePage++) {
+            html += "<li class=\"page-item\"><a id='" + numeroDePage + "' class=\"page-link\" href=\"#\">" + numeroDePage + "</a></li>";
             //todo
-            document.getElementByClassName(page-link).onclick = function() {
+              document.getElementById(numeroDePage).onclick = function() {
               numeroDePage = (numeroDePage - 1) * 25; //si la page est 1 on fait (1-1)*25 = 0 pour commencer a 0 qui est le premier élément du tableau
-              return numeroDePage;
             };
+ 
         }
     }
         pg.html(html);
