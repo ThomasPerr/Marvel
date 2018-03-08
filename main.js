@@ -3,7 +3,7 @@ var ts = "1520257765";
 var hash = "686e766732c14884f699646d8cfb6f0e";
 
 var limit = 25;
-var nbComicsAffiche=0; //on déclare une variable 
+/*var nbComicsAffiche=0; //on déclare une variable globale*/
 // todo : add characters in modal popup (http://getbootstrap.com/docs/4.0/components/modal/)
 
 function getComics() {
@@ -33,7 +33,7 @@ function getComics() {
 
 function displayComics(comics) { //on rajoute en parametre le numéro de page pour commencer a i=25 si la page est la 2em
     $("#result").html("");
-    for(var i=nbComicsAffiche; i < comics.length; i++) {
+    for(var i=0 /*nbComicsAffiche*/; i < comics.length; i++) {
         var imgSrc = comics[i].thumbnail.path + "/standard_xlarge." + comics[i].thumbnail.extension;
         var html = "<li class='comics'>"
         html += "<img class='thumb' src='" + imgSrc + "'>";
@@ -57,10 +57,10 @@ function displayPagination(count, total, limit) {
             html += "<li class=\"page-item\"><a id=\"page" + i + "\" class=\"page-link\" href=\"#\">" + i + "</a></li>";
             //todo
             
-            document.getElementById("page" + i).onclick = function() {
+            /*document.getElementById("page" + i).onclick = function() {
             	nbComicsAffiche = (i - 1) * 25; //si la page est 1 on fait (1-1)*25 = 0 pour commencer a 0 qui est le premier élément du ta
             	displayComics(data.data.results);           
-            };
+            };*/
         }
     }
         pg.html(html);
