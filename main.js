@@ -35,11 +35,11 @@ function displayComics(comics) { //on rajoute en parametre le numéro de page po
     $("#result").html("");
     for(var i=0 /*nbComicsAffiche*/; i < comics.length; i++) {
         var imgSrc = comics[i].thumbnail.path + "/standard_xlarge." + comics[i].thumbnail.extension;
-        var html = "<li class='comics'>"
-        html += "<img class='thumb' src='" + imgSrc + "'>";
+        var html = "<a href='characterView.html' target='_blank'><li class='comics'>"
+        html += "<img class='thumb' src='\" + imgSrc + \"'>";
         html += "<span class='title'>" + comics[i].title + "</span>";
 
-        html += "</li>"
+        html += "</li></a>"
         $("#result").append(html);
     }
 }
