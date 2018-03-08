@@ -3,8 +3,7 @@ var ts = "1520257765";
 var hash = "686e766732c14884f699646d8cfb6f0e";
 
 var limit = 25;
-var numeroDePage = 0; //on déclare une variable globale numéro de page
-
+var nbComicsAffiche; //on déclare une variable 
 // todo : add characters in modal popup (http://getbootstrap.com/docs/4.0/components/modal/)
 
 function getComics() {
@@ -34,7 +33,7 @@ function getComics() {
 
 function displayComics(comics) { //on rajoute en parametre le numéro de page pour commencer a i=25 si la page est la 2em
     $("#result").html("");
-    for(var i=numeroDePage; i < comics.length; i++) {
+    for(var i=nbComicsAffiche; i < comics.length; i++) {
         var imgSrc = comics[i].thumbnail.path + "/standard_xlarge." + comics[i].thumbnail.extension;
         var html = "<li class='comics'>"
         html += "<img class='thumb' src='" + imgSrc + "'>";
@@ -54,11 +53,11 @@ function displayPagination(count, total, limit) {
 
     if (total > limit) {
         nb_page = Math.ceil(total / count);
-        for(numeroDePage=1; numeroDePage <= nb_page; numeroDePage++) {
-            html += "<li class=\"page-item\"><a id='" + numeroDePage + "' class=\"page-link\" href=\"#\">" + numeroDePage + "</a></li>";
+        for(var i=1; i <= nb_page; i++) {
+            html += "<li class=\"page-item\"><a id='" + i + "' class=\"page-link\" href=\"#\">" + i + "</a></li>";
             //todo
-              document.getElementById(numeroDePage).onclick = function() {
-              numeroDePage = (numeroDePage - 1) * 25; //si la page est 1 on fait (1-1)*25 = 0 pour commencer a 0 qui est le premier élément du tableau
+              document.getElementById("'" + i + "'").onclick = function() {
+              nbComicsAffiche = (i - 1) * 25; //si la page est 1 on fait (1-1)*25 = 0 pour commencer a 0 qui est le premier élément du tableau
             };
  
         }
