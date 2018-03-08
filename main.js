@@ -3,7 +3,7 @@ var ts = "1520257765";
 var hash = "686e766732c14884f699646d8cfb6f0e";
 
 var limit = 25;
-var nbComicsAffiche; //on déclare une variable 
+var nbComicsAffiche=0; //on déclare une variable 
 // todo : add characters in modal popup (http://getbootstrap.com/docs/4.0/components/modal/)
 
 function getComics() {
@@ -54,12 +54,13 @@ function displayPagination(count, total, limit) {
     if (total > limit) {
         nb_page = Math.ceil(total / count);
         for(var i=1; i <= nb_page; i++) {
-            html += "<li class=\"page-item\"><a id='" + i + "' class=\"page-link\" href=\"#\">" + i + "</a></li>";
+            html += "<li class=\"page-item\"><a id=\"page" + i + "\" class=\"page-link\" href=\"#\">" + i + "</a></li>";
             //todo
-              document.getElementById("'" + i + "'").onclick = function() {
-              nbComicsAffiche = (i - 1) * 25; //si la page est 1 on fait (1-1)*25 = 0 pour commencer a 0 qui est le premier élément du tableau
+            
+            document.getElementById("page" + i).onclick = function() {
+            	nbComicsAffiche = (i - 1) * 25; //si la page est 1 on fait (1-1)*25 = 0 pour commencer a 0 qui est le premier élément du ta
+            	displayComics(data.data.results);           
             };
- 
         }
     }
         pg.html(html);
