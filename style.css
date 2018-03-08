@@ -29,3 +29,7 @@ body {
 .tooltip.tooltip-main {
     opacity: 1 !important;
 }
+
+h1{
+	text-align : center;
+}
