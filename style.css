@@ -1,6 +1,13 @@
+@font-face{
+	font-family:"The Amazing Spider-Man";
+	src:url('The Amazing Spider-Man.ttf');
+}
+
+
 body {
     background-color: #303030;
     color: #ffffff;
+   
 }
 
 #search {
@@ -29,3 +36,23 @@ body {
 .tooltip.tooltip-main {
     opacity: 1 !important;
 }
+
+h1{
+	margin-top:10px;
+	text-align : center;
+	 font-family:"The Amazing Spider-Man";
+	 font-size:2r;
+}
+.liste{
+	font-size:2em;
+	
+}
+
+/*button*/
+/*a{
+	color:white;
+}
+#link:hover {
+	
+	color:white;
+}*/
