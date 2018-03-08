@@ -1,14 +1,36 @@
 var PUBLIC_KEY = "4e889731a6f6e7083f41c8f77f72c4b0";
 var ts = "1520257765";
 var hash = "686e766732c14884f699646d8cfb6f0e";
-
 var limit = 25;
-var idComic;
+
 /*var nbComicsAffiche=0; //on déclare une variable globale*/
 // todo : add characters in modal popup (http://getbootstrap.com/docs/4.0/components/modal/)
 
 function getCharacters(){
-	 var url = "https://gateway.marvel.com:443/v1/public/comics/"+ idComic +"/characters?apikey=" + PUBLIC_KEY + "&hash=" + hash + "&ts=" + ts;	
+	 $("#search-load").show();
+	    $("#search-badge").text("");
+
+	    var dates = $("#slider").slider('getValue');
+	    //var url = "https://gateway.marvel.com:443/v1/public/comics?apikey=" + PUBLIC_KEY + "&hash=" + hash + "&ts=" + ts;
+  		  var url = "https://gateway.marvel.com:443/v1/public/comics/"+ idComic +"/characters?apikey=" + PUBLIC_KEY + "&hash=" + hash + "&ts=" + ts;
+
+	    var filter = "&format=magazine&dateRange=" + dates[0] + "-01-01%2C" + dates[1] + "-12-31&limit=" + limit;
+
+	    $.getJSON( url + filter )
+	        .done(function(data) {
+	            $("#search-load").hide();
+	            $("#search-badge").html(data.data.count + " / " + data.data.total);
+	            $("#attribution").html(data.attributionHTML);
+	            
+	            displayComics(data.data.results); 
+	            displayPagination(data.data.count, data.data.total, limit);
+	          
+	        })
+	        .fail(function(err){
+	            $("#search-load").hide();
+	            $("#search-badge").text("Erreur !");
+	            console.log(err);
+	        });
 }
 
 function displayCharacters(characters){
@@ -38,8 +60,6 @@ function getComics() {
             $("#search-badge").html(data.data.count + " / " + data.data.total);
             $("#attribution").html(data.attributionHTML);
             
-            idComic = data.data.id;
-            
             displayComics(data.data.results); 
             displayPagination(data.data.count, data.data.total, limit);
           
@@ -59,7 +79,7 @@ function displayComics(comics) { //on rajoute en parametre le numéro de page po
         var html = "<li class='comics'>"
         html += "<img class='thumb' src='" + imgSrc + "'>";
         html += "<span class='title'>" + comics[i].title + "</span>";
-
+        html += "<a href = 'characterView.html?idComic=" + comics[i].id   + "'>VOIR</a>";
         html += "</li>"
         $("#result").append(html);
     }
